@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PersonalExperiencesTemplate - CV Builder</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <!-- Navigation Menu -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%234a90e2'/%3E%3Ctext x='50%25' y='50%25' font-size='24' font-weight='bold' fill='white' text-anchor='middle' dy='.3em'%3ECV%3C/text%3E%3C/svg%3E" alt="CV Builder Logo" class="logo-img">
+                <a href="index.html" class="logo-text">CV Builder</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="cv.html" class="nav-link active">Build CV</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>CV Maker- Build Your Resume</h1>
+            <p class="subtitle">Build your professional resume in minutes</p>
+        </header>
+
+        <!-- Progress Indicator -->
+        <div class="progress-bar">
+            <div class="progress-step" data-step="1">
+                <div class="step-circle active">1</div>
+                <label>Personal Details</label>
+            </div>
+            <div class="progress-step" data-step="2">
+                <div class="step-circle">2</div>
+                <label>My Experiences</label>
+            </div>
+            <div class="progress-step" data-step="3">
+                <div class="step-circle">3</div>
+                <label>Select Template</label>
+            </div>
+        </div>
+
+        <!-- Step 1: Personal Details -->
+        <div class="step-container active" id="step1">
+            <h2>Step 1 — Personal Details</h2>
+            <form id="personalDetailsForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First name *</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last name *</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" id="address" name="address">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="zipCode">Zip code</label>
+                        <input type="text" id="zipCode" name="zipCode">
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City/Town</label>
+                        <input type="text" id="city" name="city" placeholder="e.g. San Francisco">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="birthDay">Date of birth (Day)</label>
+                        <input type="number" id="birthDay" name="birthDay" min="1" max="31">
+                    </div>
+                    <div class="form-group">
+                        <label for="birthMonth">Month</label>
+                        <select id="birthMonth" name="birthMonth">
+                            <option value="">Select Month</option>
+                            <option value="01">January</option>
+                            <option value="02">February</option>
+                            <option value="03">March</option>
+                            <option value="04">April</option>
+                            <option value="05">May</option>
+                            <option value="06">June</option>
+                            <option value="07">July</option>
+                            <option value="08">August</option>
+                            <option value="09">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="birthYear">Year</label>
+                        <input type="number" id="birthYear" name="birthYear" min="1900" max="2024">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="placeOfBirth">Place of birth</label>
+                    <input type="text" id="placeOfBirth" name="placeOfBirth">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="drivingLicense">Driving license</label>
+                        <select id="drivingLicense" name="drivingLicense">
+                            <option value="">Select</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select id="gender" name="gender">
+                            <option value="">Select</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                            <option value="Prefer not to say">Prefer not to say</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nationality">Nationality</label>
+                        <input type="text" id="nationality" name="nationality">
+                    </div>
+                    <div class="form-group">
+                        <label for="maritalStatus">Marital status</label>
+                        <input type="text" id="maritalStatus" name="maritalStatus">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="linkedin">LinkedIn</label>
+                    <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/...">
+                </div>
+
+                <div class="form-group">
+                    <label for="website">Website</label>
+                    <input type="url" id="website" name="website" placeholder="https://...">
+                </div>
+
+                <div class="form-group">
+                    <label for="additionalInfo">Additional information</label>
+                    <textarea id="additionalInfo" name="additionalInfo" rows="4"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="photo">Upload photo (optional)</label>
+                    <input type="file" id="photo" name="photo" accept="image/*">
+                    <div class="photo-preview" id="photoPreview"></div>
+                </div>
+
+                <div class="form-footer">
+                    <p class="terms-text">By clicking 'Next step', you agree to our general terms and privacy policy.</p>
+                    <div>
+                        <button type="button" class="btn btn-secondary" id="resetStep1">Reset Step</button>
+                        <button type="submit" class="btn btn-primary">Next Step</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Step 2: My Experiences -->
+        <div class="step-container" id="step2">
+            <h2>Step 2 — My Experiences</h2>
+
+            <!-- Resume Objective -->
+            <div class="section-card">
+                <h3>Resume Objective</h3>
+                <div class="form-group">
+                    <label for="resumeObjective">Short text area</label>
+                    <textarea id="resumeObjective" name="resumeObjective" rows="3" placeholder="Brief career objective..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="objectiveDescription">Description</label>
+                    <textarea id="objectiveDescription" name="objectiveDescription" rows="4" placeholder="Detailed objective description..."></textarea>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div class="section-card">
+                <h3>Education and Qualifications</h3>
+                <div id="educationEntries"></div>
+                <button type="button" class="btn btn-secondary" id="addEducation">Add another education</button>
+            </div>
+
+            <!-- Work Experience -->
+            <div class="section-card">
+                <h3>Work Experience</h3>
+                <div id="workEntries"></div>
+                <button type="button" class="btn btn-secondary" id="addWork">Add another work experience</button>
+            </div>
+
+            <!-- Interests -->
+            <div class="section-card">
+                <h3>Interests</h3>
+                <div id="interestEntries"></div>
+                <button type="button" class="btn btn-secondary" id="addInterest">Add another hobby</button>
+            </div>
+
+            <!-- References -->
+            <div class="section-card">
+                <h3>References</h3>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="referencesOnRequest"> References available on request
+                    </label>
+                </div>
+                <div id="referenceEntries"></div>
+                <button type="button" class="btn btn-secondary" id="addReference">Add another reference</button>
+            </div>
+
+            <!-- Skills -->
+            <div class="section-card">
+                <h3>Skills</h3>
+                <div id="skillEntries"></div>
+                <button type="button" class="btn btn-secondary" id="addSkill">Add another skill</button>
+            </div>
+
+            <!-- Languages -->
+            <div class="section-card">
+                <h3>Languages</h3>
+                <div id="languageEntries"></div>
+                <button type="button" class="btn btn-secondary" id="addLanguage">Add another language</button>
+            </div>
+
+            <!-- Achievements -->
+            <div class="section-card">
+                <h3>Achievements</h3>
+                <div class="form-group">
+                    <textarea id="achievements" name="achievements" rows="4" placeholder="Describe your achievements..."></textarea>
+                </div>
+            </div>
+
+            <!-- Publications -->
+            <div class="section-card">
+                <h3>Publications</h3>
+                <div class="form-group">
+                    <textarea id="publications" name="publications" rows="4" placeholder="List your publications..."></textarea>
+                </div>
+            </div>
+
+            <!-- Extra Sections -->
+            <div class="section-card">
+                <h3>Extra Sections</h3>
+                <select id="extraSectionType" class="form-control">
+                    <option value="">Select section type</option>
+                    <option value="certifications">Certifications</option>
+                    <option value="projects">Projects</option>
+                    <option value="awards">Awards</option>
+                    <option value="volunteer">Volunteer Work</option>
+                    <option value="courses">Courses</option>
+                </select>
+                <button type="button" class="btn btn-secondary" id="addExtraSection">Add Extra Section</button>
+                <div id="extraSections"></div>
+            </div>
+
+            <div class="form-footer">
+                <button type="button" class="btn btn-secondary" id="prevStep2">Previous Step</button>
+                <button type="button" class="btn btn-secondary" id="resetStep2">Reset Step</button>
+                <button type="button" class="btn btn-primary" id="nextStep2">Next Step</button>
+            </div>
+        </div>
+
+        <!-- Step 3: Template Selection -->
+        <div class="step-container" id="step3">
+            <h2>Step 3 — Select Template</h2>
+            <div class="templates-grid" id="templatesGrid">
+                <div class="template-card" data-template="auckland">
+                    <div class="template-preview">Auckland</div>
+                    <p>Auckland</p>
+                </div>
+                <div class="template-card" data-template="edinburgh">
+                    <div class="template-preview">Edinburgh</div>
+                    <p>Edinburgh</p>
+                </div>
+                <div class="template-card" data-template="princeton">
+                    <div class="template-preview">Princeton</div>
+                    <p>Princeton</p>
+                </div>
+                <div class="template-card" data-template="otago">
+                    <div class="template-preview">Otago</div>
+                    <p>Otago</p>
+                </div>
+                <div class="template-card" data-template="berkeley">
+                    <div class="template-preview">Berkeley</div>
+                    <p>Berkeley</p>
+                </div>
+                <div class="template-card" data-template="harvard">
+                    <div class="template-preview">Harvard</div>
+                    <p>Harvard</p>
+                </div>
+                <div class="template-card" data-template="stanford">
+                    <div class="template-preview">Stanford</div>
+                    <p>Stanford</p>
+                </div>
+                <div class="template-card" data-template="cambridge">
+                    <div class="template-preview">Cambridge</div>
+                    <p>Cambridge</p>
+                </div>
+                <div class="template-card" data-template="oxford">
+                    <div class="template-preview">Oxford</div>
+                    <p>Oxford</p>
+                </div>
+            </div>
+
+            <div class="form-footer">
+                <button type="button" class="btn btn-secondary" id="prevStep3">Previous Step</button>
+                <button type="button" class="btn btn-secondary" id="previewResume">Preview</button>
+                <button type="button" class="btn btn-secondary" id="resetAll">Reset All</button>
+                <button type="button" class="btn btn-primary" id="downloadResume">Download Resume</button>
+            </div>
+        </div>
+
+        <!-- Resume Preview (Hidden until download) -->
+        <div id="resumePreview" class="resume-preview-container" style="display: none;">
+            <!-- Will be populated dynamically -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
